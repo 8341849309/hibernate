@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping>
+
+	<class name="com.nt.entity.CallerTune" table="CALLER_TUNE_VERSIONING" dynamic-update="true" dynamic-insert="true">
+	
+		<id name="callerId" column="CALLER_id" type="integer">
+			<generator class="increment"/>
+		</id>
+		
+		<!-- Version Allowed next to Id only -->
+		<version name="changeCount" column="CHANGE_COUNT" type="integer"/>
+		
+		<property name="callerTune" column="CALLER_TUNE" type="string" length="25"/>
+		<property name="provider" column="PROVIDER" type="string" length="25"/>
+		<property name="phone" column="PHONE_NUMBER" type="long"/>
+	
+	</class>
+
+</hibernate-mapping>
