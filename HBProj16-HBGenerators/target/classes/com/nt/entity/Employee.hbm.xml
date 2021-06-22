@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping>
+
+	<class name="com.nt.entity.Employee" table="EMPLOYEE_GENERATORS" dynamic-update="true" dynamic-insert="true">
+	
+	<!-- 
+		<id name="empid" column="EMPLOYEE_ID" type="integer">
+			<generator class="assigned"/>
+		</id>
+	 -->	
+	 
+	 	<!-- 
+	 	<id name="empid" column="EMPLOYEE_ID" type="integer">
+			<generator class="increment"/>
+		</id>
+		 -->
+		 
+		 <!-- works only in mysql db s/w
+	 	<id name="empid" column="EMPLOYEE_ID" type="integer">
+			<generator class="identity"/>
+		</id>
+		 -->
+		<!--  
+		 Works only in Oracle db s/w
+	 	<id name="empid" column="EMPLOYEE_ID" type="integer">
+			<generator class="sequence"/>
+		</id>
+		 -->
+		<!-- 
+		Batch operation Oracle 
+		 <id name="empid" column="EMPLOYEE_ID" type="integer">
+			<generator class="seqhilo">
+				<param name="max_lo">2</param>
+			</generator>
+		</id>
+		 -->
+		 
+		 <!-- Native to support Oracle, Mysql Db it decides identity or sequence based on db -->
+		 <id name="empid" column="EMPLOYEE_ID" type="integer">
+			<generator class="native">
+				<param name="max_lo">2</param>
+			</generator>
+		</id>
+		 
+	 	<property name="name" column="EMPLOYEE_NAME" type="string" length="25"/>
+		<property name="salary" column="SALARY" type="float"/>
+	
+	</class>
+
+</hibernate-mapping>
