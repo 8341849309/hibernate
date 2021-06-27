@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping>
+
+	<class name="com.nt.entity.Actor" table="ACTOR" dynamic-insert="true" lazy="false">
+		
+		<!-- 
+		Singular Id column
+		<id name="actorid" column="ACTORID"/>
+		
+		Other Mapping properties
+		<property name="actorname" column="ACTORNAME"/>
+		<property name="actoraddrs" column="ACTORADDRS"/>
+		<property name="phone" column="PHONE"/>
+		<property name="remuneration" column="REMUNERATION"/>
+		 --> 
+		
+		<id name="actorid" type="int">
+			<generator class="increment"/>
+		</id>
+		
+		<property name="actorname" type="string" length="20" unique="true" not-null="true"/>
+		<property name="actoraddrs" type="string" length="20"/>
+		<property name="phone" type="long"/>
+		<property name="remuneration" type="float"/>
+		
+	</class>
+
+</hibernate-mapping>
