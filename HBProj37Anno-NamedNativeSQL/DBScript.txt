@@ -1,0 +1,8 @@
+CREATE TABLE `hibernate`.`actor` (
+  `actorid` INT NOT NULL,
+  `actorname` VARCHAR(45) NULL,
+  `actoraddrs` VARCHAR(45) NULL,
+  `phone` BIGINT NULL,
+  `remuneration` FLOAT(45) NULL,
+  PRIMARY KEY (`actorid`),
+  UNIQUE INDEX `actorid_UNIQUE` (`actorid` ASC) VISIBLE);
