@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.nt.entity.Traveller" table="TRAVELLET_SET_MAP">
+
+		<id name="travellerId" type="int" column="Id">
+			<generator class="increment" />
+		</id>
+
+		<property name="tavellerName" column="Name" type="string" />
+		<property name="dob" column="DOB"/>
+		
+		<set name="phones" table="PHONE_NUMBERS">
+			<key column="TRAVELLER_ID"/>
+			<element column="NUMBERS" type="long"/>
+		</set>
+		
+		<map name="placesVisited" table="PLACES_VISITED">
+			<key column="TRAVELLER_ID"/>
+			<map-key column="TOUR_NAME" length="50" type="string"/>
+			<element column="TOUR_PLACE" length="50" type="string"/>
+		</map>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.nt.entity.Student" table="STUDENT_LIST">
+
+		<id name="sid" type="int" column="Id">
+			<generator class="increment" />
+		</id>
+
+		<property name="sname" column="Name" type="string" />
+		<property name="course" column="Course" type="string" />
+		
+		<bag name="friends" table="FRIENDS_LIST_BAG">
+			<key column="STUD_ID"/>
+			<element column="FRIEND_NAME" length="30" type="string"/>
+		</bag>
+		
+		<!-- <list name="friends" table="FRIENDS_LIST">
+			<key column="STUD_ID"/>
+			<list-index base="1" column="FRIEND_INDEX"/>
+			<element column="FRIEND_NAME" length="30" type="string"/>
+		</list>
+		 -->
+	</class>
+</hibernate-mapping>
