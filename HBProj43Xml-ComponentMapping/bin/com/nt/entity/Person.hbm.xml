@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping>
+
+	<class name="com.nt.entity.Person" table="PERSON_JOB_DETAILS">
+		
+		<id name="pid" column="PERSON_ID" type="int">
+			<generator class="increment"/>
+		</id>
+		
+		<property name="pname" column="PERSON_NAME" type="string" length="30"/>
+		
+		<component name="details" class="com.nt.entity.JobDetails">
+			<property name="desg" column="DESIGNATION" length="25" type="string"/>
+			<property name="company" column="COMPANY_NAME" length="40" type="string"/>
+			<property name="salary" column="SALARY" type="float"/>
+		</component>
+		
+		
+	</class>
+	
+</hibernate-mapping>
