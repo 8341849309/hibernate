@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.nt.entity.Person" table="PERSON_DETAILS_INH_TPCC">
+		
+		<id name="pid" column="PERSON_ID" type="long">
+			<generator class="increment"/>
+		</id>
+		
+		<property name="pname" column="PERSON_NAME" type="string" length="30"/>
+		<property name="addrs" column="ADDRESS" type="string" length="30"/>
+		
+		<union-subclass name="com.nt.entity.Employee" table="INH_EMPLOYEE_TPCC">
+			<property name="desg" column="DESIGNATION" type="string" length="50"/>
+			<property name="company" column="COMPANY" type="string" length="50"/>
+			<property name="salary" column="SALARY" type="float"/>
+		</union-subclass>
+		
+		<union-subclass name="com.nt.entity.Customer" table="INH_CUSTOMER_TPCC">
+			<property name="billAmt" column="BILL_AMOUNT" type="float"/>
+			<property name="discount" column="DISCOUNT" type="float"/>
+		</union-subclass>
+			
+	</class>
+	
+</hibernate-mapping>
